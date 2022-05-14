@@ -4,6 +4,7 @@ import './Home.scss'
 //Components
 import Sidebar from '../../components/sidebar/Sidebar';
 import Nabvar from '../../components/navbar/Nabvar';
+import Widget from '../../components/widget/Widget';
 
 function Home() {
     return (
@@ -11,6 +12,12 @@ function Home() {
             <Sidebar />
             <div className="homeContainer">
                 <Nabvar />
+                <div className="widgets">
+                    <Widget />
+                    <Widget />
+                    <Widget />
+                    <Widget />
+                </div>
             </div>
         </div>
     );
