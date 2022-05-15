@@ -5,6 +5,8 @@ import './Home.scss'
 import Sidebar from '../../components/sidebar/Sidebar';
 import Nabvar from '../../components/navbar/Nabvar';
 import Widget from '../../components/widget/Widget';
+import Chart from '../../components/chart/Chart';
+import Featured from '../../components/featured/Featured';
 
 function Home() {
     return (
@@ -17,6 +19,10 @@ function Home() {
                     <Widget type="order"/>
                     <Widget type="earning"/>
                     <Widget type="balance"/>
+                </div>
+                <div className="charts">
+                    <Featured />
+                    <Chart />
                 </div>
             </div>
         </div>
