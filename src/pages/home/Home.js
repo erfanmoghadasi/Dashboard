@@ -7,6 +7,7 @@ import Nabvar from '../../components/navbar/Nabvar';
 import Widget from '../../components/widget/Widget';
 import Chart from '../../components/chart/Chart';
 import Featured from '../../components/featured/Featured';
+import TableList from '../../components/tableList/TableList';
 
 function Home() {
     return (
@@ -23,6 +24,10 @@ function Home() {
                 <div className="charts">
                     <Featured />
                     <Chart />
+                </div>
+                <div className="listContainer">
+                    <div className="listTitle">Latest Transactions</div>
+                    <TableList />
                 </div>
             </div>
         </div>
