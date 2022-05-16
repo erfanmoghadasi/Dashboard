@@ -1,10 +1,20 @@
 import React from 'react';
 import './List.scss'
 
-function List(props) {
+//components
+import Nabvar from '../../components/navbar/Nabvar';
+import Sidebar from '../../components/sidebar/Sidebar';
+import Datatable from '../../components/datatable/Datatable';
+
+
+function List() {
     return (
-        <div>
-            List
+        <div className='list'>
+            <Sidebar />
+            <div className="listContainer">
+                <Nabvar />
+                <Datatable />
+            </div>
         </div>
     );
 }
