@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import './Navbar.scss';
 
 //MUI icons
@@ -13,8 +13,11 @@ import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 //avatar 
 import me from '../../assets/me.jpg';
 
+import {DarkModeContext} from '../../context/darkModeContext'
+
 
 function Nabvar() {
+    const { dispatch } = useContext(DarkModeContext)
     return (
         <div className='navbar'>
             <div className="wrapper">
@@ -28,7 +31,7 @@ function Nabvar() {
                         English
                     </div>
                     <div className="item">
-                        <DarkModeOutlinedIcon className='icon'/>
+                        <DarkModeOutlinedIcon className='icon' onclick={ ()=> dispatch({type: 'TOGGLE'}) }/>
                     </div>
                     <div className="item">
                         <FullscreenOutlinedIcon className='icon'/>

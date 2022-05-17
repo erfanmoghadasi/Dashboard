@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Sidebar.scss";
 
 //MUI icons
@@ -15,29 +15,44 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
+//react router dom
+import { Link } from "react-router-dom";
+
+import { DarkModeContext } from '../../context/darkModeContext';
+
 function Sidebar() {
+  const { dispatch } = useContext(DarkModeContext)
   return (
     <div className="sidebar">
       <div className="top">
+        <Link className="link" to='/'>
         <span className="logo">Admin</span>
+        </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+        <Link className="link" to='/'>
           <li>
             <DashboardOutlinedIcon className="icon" />
             <span>Dashboard</span>
           </li>
+        </Link>
           <p className="title">LISTS</p>
+        <Link className="link" to='/users'>
           <li>
             <PersonOutlineOutlinedIcon className="icon" />
             <span>Users</span>
           </li>
+            </Link> 
+        <Link className="link" to='/products'>
+            
           <li>
             <ProductionQuantityLimitsOutlinedIcon className="icon" />
             <span>Products</span>
           </li>
+          </Link>
           <li>
             <BookmarkBorderOutlinedIcon className="icon" />
             <span>Orders</span>
@@ -80,8 +95,8 @@ function Sidebar() {
         </ul>
       </div>
       <div className="bottom">
-          <div className="colorOption"></div>
-          <div className="colorOption"></div>
+          <div className="colorOption" onClick={() => dispatch({type: 'LIGHT'})}></div>
+          <div className="colorOption" onClick={() => dispatch({type: 'DARK'})}></div>
       </div>
     </div>
   );

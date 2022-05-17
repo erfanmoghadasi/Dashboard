@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.scss';
+
+//Dark Mode Style
+import '../src/style/dark.scss'
+
 import { Route, Routes } from 'react-router-dom';
+import { DarkModeContext } from './context/darkModeContext';
 
 //components
 import Home from './pages/home/Home';
@@ -12,9 +17,12 @@ import New from './pages/new/New';
 //Form Data
 import { productInputs, userInputs } from './formSource';
 
-function App(props) {
+function App() {
+
+  const {darkMode} =useContext(DarkModeContext)
+
   return (
-    <div className='App'>
+    <div className={darkMode ? 'app dark' : 'app'}>
       <Routes>
         <Route path='/'>
             <Route index element={<Home />} />

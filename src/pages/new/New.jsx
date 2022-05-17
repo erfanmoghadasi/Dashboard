@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './New.scss';
 
 //images
@@ -13,6 +13,10 @@ import Sidebar from '../../components/sidebar/Sidebar';
 
 
 function New({inputs, title}) {
+
+    const [file, setFile] = useState('')
+
+
     return (
         <div className='new'>
             <Sidebar />
@@ -23,7 +27,7 @@ function New({inputs, title}) {
                 </div>
                 <div className="bottom">
                     <div className="left">
-                        <img src={noPhoto2} alt="profile" />
+                        <img src={file ? URL.createObjectURL(file) : noPhoto2 } alt="profile" />
                     </div>
                     <div className="right">
                         <form>
@@ -31,7 +35,7 @@ function New({inputs, title}) {
                                 <label htmlFor='file'>
                                 Image: <FileUploadOutlinedIcon className='icon'/>
                                 </label>
-                                <input type='file' id='file' style={{display: 'none'}}/>
+                                <input type='file' id='file' onChange={e => setFile(e.target.files[0])} style={{display: 'none'}}/>
                             </div>
                             {inputs.map((input) => (
                                 <div className="formInput" key={input.id}>
